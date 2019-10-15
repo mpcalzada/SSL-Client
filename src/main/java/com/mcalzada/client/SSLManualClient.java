@@ -1,5 +1,6 @@
-package com.ks;
+package com.mcalzada.client;
 
+import com.mcalzada.Assert;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -20,10 +21,7 @@ public class SSLManualClient implements Clients
 
   public void init(String[] args) throws Exception
   {
-    if (args.length < 5)
-    {
-      throw new Exception("Unable to configure Client");
-    }
+    Assert.assertTrue(args.length >= 5, "Missing program arguments for a manual SSL Client.");
 
     final String host = args[1];
     final int port = Integer.parseInt(args[2]);

@@ -1,4 +1,4 @@
-package com.ks;
+package com.mcalzada.client;
 
 public interface Clients
 {

@@ -38,7 +38,7 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>com.ks.App</mainClass>
+              <mainClass>com.mcalzada.App</mainClass>
             </manifest>
             <manifestEntries>
               <key>true</key>

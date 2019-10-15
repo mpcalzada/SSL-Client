@@ -1,4 +1,4 @@
-package com.ks;
+package com.mcalzada.client;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -31,7 +31,7 @@ public class SSLAutoClient implements Clients
 
   public void process(String message)
   {
-    System.out.println("Trying connection to: " + host + ":" + port);
+    System.out.println("Trying TLS connection to: " + host + ":" + port);
 
     SocketFactory factory = SSLSocketFactory.getDefault();
     try (Socket connection = factory.createSocket(host, port))
@@ -44,14 +44,22 @@ public class SSLAutoClient implements Clients
       sslParams.setEndpointIdentificationAlgorithm("HTTPS");
       ((SSLSocket) connection).setSSLParameters(sslParams);
 
-      PrintWriter out = new PrintWriter(connection.getOutputStream(), true);
-      out.println(message);
+      System.out.println("Trying to read a message");
+
       BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream()));
       System.out.println(input.readLine());
+
+      System.out.println("Trying to send the message: " + message);
+
+      PrintWriter out = new PrintWriter(connection.getOutputStream(), true);
+      out.println(message);
+
+      System.out.println("Everything works fine :)");
     }
     catch (Exception e)
     {
-      System.out.println("Connection failed " + e.getMessage() + " on " + e.getLocalizedMessage());
+      System.out.println(("Connection failed " + e.getMessage() + " on " + e.getLocalizedMessage()).replace("\n", ""));
+      System.out.println("\nException details: \n");
       e.printStackTrace();
     }
   }

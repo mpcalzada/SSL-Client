@@ -1,4 +1,4 @@
-package com.ks;
+package com.mcalzada;
 
 import static org.junit.Assert.assertTrue;
 
