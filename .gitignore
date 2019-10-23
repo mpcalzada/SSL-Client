@@ -6,3 +6,9 @@ target/
 .idea/*
 *.iml
 *.log
+
+*.crt
+*.jks
+*.pem
+*.cert
+*.cer
