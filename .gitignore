@@ -1,4 +1,3 @@
-.gitignore
 .idea/
 sslclient.iml
 target/
@@ -7,8 +6,4 @@ target/
 *.iml
 *.log
 
-*.crt
-*.jks
-*.pem
-*.cert
-*.cer
+config/
